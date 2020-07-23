@@ -71,14 +71,14 @@ int main(void)
   // データ配列の作成 data[20]と同じ意味上のマクロを用いて
   int data[N];
   for (int i = 0; i < n; i++) {
-      int x;
-      fgets(buf, sizeof(buf), stdin);
-      sscanf(buf, "%d", &x);
-      data[i] = x;
+    int x;
+    fgets(buf, sizeof(buf), stdin);
+    sscanf(buf, "%d", &x);
+    data[i] = x;
   }
 
   for (int i = 0; i < n; i++) {
-      printf("%d\n", data[i]);
+    printf("%d\n", data[i]);
   }
 
   // sscanf で文字列を分割しよう
@@ -97,31 +97,29 @@ int main(void)
 
   // 文字列の分割（,などで分割させた場合） #include <string.h>
   fgets(buf, sizeof(buf), stdin);
-    // sscanf で %s を使うと、空白文字以外では分割できません。
+  // sscanf で %s を使うと、空白文字以外では分割できません。
 
-    // *tp ポインタ変数はアドレスを保持するための変数
-    // 文字列の先頭を指し示す変数 変数の前に*をつける
-    char *tp;
-    /* strtok を使うと、空白文字以外でも文字列を分割できます。
+  // *tp ポインタ変数はアドレスを保持するための変数
+  // 文字列の先頭を指し示す変数 変数の前に*をつける
+  char *tp;
+  /* strtok を使うと、空白文字以外でも文字列を分割できます。
+  strtok の 1 つ目の引数は、
+  1 回目の呼び出しでは、文字列を格納した変数、
+  2 回目以降の呼び出しでは、NULL
+  を指定します。
 
-    strtok の 1 つ目の引数は、
-    1 回目の呼び出しでは、文字列を格納した変数、
-    2 回目以降の呼び出しでは、NULL
-    を指定します。
+  ※strtokを使うと、もとの文字列 (ここでは str) は書き換わってしまいます
+  strtok の 2 つ目の引数は、区切りたい文字を文字列として指定（今回は(,)）
+  文字列を表示させたい回数分記述する。strtok printf
+  区切りたい文字までいくとその文字が\0(ヌル文字)と変換される
+  ヌル文字を読むとそこまでが文字列だと判断されて、
+  また別の文字列として表示する。その繰り返しがされて分割していく*/
+  tp = strtok(buf, " ,\n");
+  printf("%s\n", tp);
 
-    ※strtokを使うと、もとの文字列 (ここでは str) は書き換わってしまいます
-    
-    strtok の 2 つ目の引数は、区切りたい文字を文字列として指定（今回は(,)）
-    文字列を表示させたい回数分記述する。strtok printf
-    区切りたい文字までいくとその文字が\0(ヌル文字)と変換される
-    ヌル文字を読むとそこまでが文字列だと判断されて、
-    また別の文字列として表示する。その繰り返しがされて分割していく*/
-    tp = strtok(buf, " ,\n");
-    printf("%s\n", tp);
+  tp = strtok(NULL, " ,\n");
+  printf("%s\n", tp);
 
-    tp = strtok(NULL, " ,\n");
-    printf("%s\n", tp);
-
-    tp = strtok(NULL, " ,\n");
-    printf("%s\n", tp);
+  tp = strtok(NULL, " ,\n");
+  printf("%s\n", tp);
 }
