@@ -28,7 +28,6 @@ int main (void){
   printf("%sは、荒野を歩いていた\n", player);
   printf("%sは、モンスターと戦った\n", player);
   printf("%sは、モンスターをたおした\n", player);
-  // return 0;
 
   //値段を計算する
   srand((unsigned int)time(NULL));
@@ -40,4 +39,6 @@ int main (void){
   printf("リンゴを買う数：%d個\n", apple_num);
   int total = apple_price * apple_num;
   printf("合計金額：%d円\n", total);
+  // C 言語の main 関数で return 0; を最後に書くことで、プログラムが正常に終了したことをシェルに伝えます
+  return 0;
 }
