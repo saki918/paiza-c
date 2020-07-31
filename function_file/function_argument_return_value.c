@@ -18,15 +18,15 @@ void say_hello(void);
 // returnを記述しなかった場合自動的にreturn0が行われる
 int main(void)
 {
-    say_hello();
-    sum(3, 5);
-    int c = plus(45,918);
-    printf("%d\n", c);
+  say_hello();
+  sum(3, 5);
+  int c = plus(45,918);
+  printf("%d\n", c);
 }
 
 // 関数に引数を設定
 void sum(int x, int y) {
-    printf("%d\n", x + y);
+  printf("%d\n", x + y);
 }
 
 // main関数で値を使いたい場合、戻り値を使う。
@@ -34,10 +34,10 @@ void sum(int x, int y) {
    ・関数名の前に、戻り値のデータ型を記述する。
    ・関数の中で「return ...」で値を返す。*/
 int plus(int a, int b) {
-    return a + b;
+  return a + b;
 }
 
 void say_hello(void)
 {
-    printf("Hello paiza\n");
+  printf("Hello paiza\n");
 }
